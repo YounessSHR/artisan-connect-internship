@@ -1,0 +1,36 @@
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Products, Cooperatives, and Blog Posts are public and readable by anyone.
+    // They are not writable from the client to protect data integrity.
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if false;
+    }
+    match /cooperatives/{cooperativeId} {
+      allow read: if true;
+      allow write: if false;
+    }
+    match /blogPosts/{slug} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Users can create their own profile upon registration.
+    // They can only read, update, or delete their own profile, not others'.
+    match /users/{userId} {
+      allow read, update, delete: if request.auth != null && request.auth.uid == userId;
+      allow create: if request.auth != null;
+    }
+
+    // Authenticated users can create reviews for any product.
+    // We can add rules later for updating/deleting reviews if needed.
+    match /products/{productId}/reviews/{reviewId} {
+      allow read: if true;
+      allow create: if request.auth != null;
+    }
+  }
+}

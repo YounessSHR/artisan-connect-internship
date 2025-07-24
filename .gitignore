@@ -1,0 +1,50 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# Next.js build output
+/.next/
+/out/
+
+# Vercel build output
+.vercel
+
+# Other build outputs
+/build
+/dist
+/.firebase
+
+# Test outputs
+/coverage
+
+# Firebase
+firebase-debug.log
+firebase-debug.*.log
+
+# Local environment variables
+# Exclude all .env files and only include the example file
+.env
+.env.*
+!.env.example
+!.env.production
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor directories and files
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.sublime-workspace
+
+# System files
+.DS_Store
+Thumbs.db
