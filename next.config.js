@@ -36,7 +36,10 @@ const nextConfig = {
       bodySizeLimit: '2mb',
     },
   },
-  allowedDevOrigins: ["https://3000-firebase-studio-1752748070845.cluster-c3a7z3wnwzapkx3rfr5kz62dac.cloudworkstations.dev"],
+  allowedDevOrigins: [
+    "https://3000-firebase-studio-1752748070845.cluster-c3a7z3wnwzapkx3rfr5kz62dac.cloudworkstations.dev",
+    "https://bxj68g3w-3000.uks1.devtunnels.ms"
+  ],
 };
 
 module.exports = nextConfig;

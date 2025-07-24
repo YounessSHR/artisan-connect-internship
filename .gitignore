@@ -1,34 +1,35 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
 # Dependencies
 /node_modules
 /.pnp
 .pnp.js
-.yarn/install-state.gz
+.pnp.loader.mjs
+
+# Testing
+/coverage
 
 # Next.js build output
 /.next/
 /out/
 
-# Vercel build output
+# Production build
+/build
+
+# Vercel deployment folder
 .vercel
 
-# Other build outputs
-/build
-/dist
-/.firebase
+# Turborepo cache
+.turbo
 
-# Test outputs
-/coverage
-
-# Firebase
-firebase-debug.log
-firebase-debug.*.log
-
-# Local environment variables
-# Exclude all .env files and only include the example file
+# Environment Variables - IMPORTANT!
+# Never commit files with secrets.
 .env
-.env.*
-!.env.example
-!.env.production
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # Log files
 npm-debug.log*
@@ -37,14 +38,23 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Editor directories and files
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-*.sublime-workspace
-
-# System files
+# Misc
 .DS_Store
-Thumbs.db
+*.pem
+
+# Editor directories and files
+.vscode/
+.idea/
+.fleet/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Firebase
+/firebase-debug.log
+/firebase-crashlytics-build.json
+
+# IDX project files
+.idx/

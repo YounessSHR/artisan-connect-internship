@@ -104,7 +104,7 @@ export default function Header() {
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : isMounted ? (
-              <div className="hidden sm:flex items-center gap-2">
+              <div className="sm:flex items-center gap-2">
                 <Button variant="ghost" asChild>
                   <Link href="/login">Se Connecter</Link>
                 </Button>

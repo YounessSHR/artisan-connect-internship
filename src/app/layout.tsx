@@ -12,18 +12,9 @@ import {
   SidebarInset,
   SidebarProvider,
 } from "@/components/ui/sidebar";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import {
-  Home,
-  ShoppingBag,
-  Users,
-  Newspaper,
-  Info,
-  Mail,
-  PlusCircle,
-} from "lucide-react";
 import { cn } from "@/lib/utils";
+import { MobileNav } from "@/components/mobile-nav";
 
 const literata = Literata({
   subsets: ["latin"],
@@ -42,15 +33,6 @@ export const metadata: Metadata = {
   title: "ArtisanConnect",
   description: "Un Voyage au Cœur de l'Artisanat Marocain",
 };
-
-const navLinks = [
-  { href: "/", label: "Accueil", icon: Home },
-  { href: "/products", label: "Boutique", icon: ShoppingBag },
-  { href: "/cooperatives", label: "Coopératives", icon: Users },
-  { href: "/blog", label: "Blog", icon: Newspaper },
-  { href: "/about", label: "À Propos", icon: Info },
-  { href: "/contact", label: "Contact", icon: Mail },
-];
 
 export default function RootLayout({
   children,
@@ -82,16 +64,7 @@ export default function RootLayout({
                       ArtisanConnect
                     </Link>
                   </div>
-                  <div className="flex-grow p-4 space-y-2">
-                    {navLinks.map((link) => (
-                      <Button key={link.href} variant="ghost" className="w-full justify-start" asChild>
-                        <Link href={link.href}>
-                          <link.icon className="mr-2 h-4 w-4" />
-                          {link.label}
-                        </Link>
-                      </Button>
-                    ))}
-                  </div>
+                  <MobileNav />
                 </div>
               </Sidebar>
               <SidebarInset>
