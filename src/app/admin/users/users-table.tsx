@@ -34,7 +34,7 @@ export function UsersTable() {
         setError(null);
         try {
             const token = await getIdToken();
-            const result = await getAllUsers(token);
+            const result = await getAllUsers(token ?? undefined);
             if (result.success && result.users) {
                 setUsers(result.users);
             } else {
