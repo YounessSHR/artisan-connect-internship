@@ -58,7 +58,7 @@ export function CooperativeDetailContent({ cooperative, cooperativeProducts }: {
                 <h3 className="font-headline text-2xl font-bold mb-4">Produits de cette coopérative</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {cooperativeProducts.map(product => (
-                    <ProductCard product={product} key={product.id} />
+                    <ProductCard product={{ ...product, avgRating: 0 } as any} key={product.id} />
                   ))}
                 </div>
               </div>
@@ -70,9 +70,9 @@ export function CooperativeDetailContent({ cooperative, cooperativeProducts }: {
           <div className="my-16">
             <h2 className="font-headline text-3xl font-bold mb-8 text-center scroll-m-20" id="artisans">Rencontrez nos Artisans</h2>
             <div className="space-y-12">
-              {cooperative.artisans.map(artisan => (
+              {cooperative.artisans.map((artisan: any) => (
                 <div key={artisan.id} id={`artisan-${artisan.id}`} className="scroll-m-20">
-                  <ArtisanProfile artisan={artisan} products={artisan.products} />
+                  <ArtisanProfile artisan={artisan} products={artisan.products ?? []} />
                 </div>
               ))}
             </div>

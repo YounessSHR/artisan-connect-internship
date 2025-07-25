@@ -9,7 +9,7 @@
 
 import { db } from "@/lib/firebase-admin";
 import type { Product, Review, ProductWithRating, UserProfile } from "@/lib/definitions";
-import type { Query } from "firebase-admin/firestore";
+import type { Query, CollectionReference } from "firebase-admin/firestore";
 
 type GetProductsOptions = {
     page?: number;
@@ -35,7 +35,7 @@ export const getAllProducts = async (): Promise<Product[]> => {
  * @returns {Promise<number>} The total number of products matching the criteria.
  */
 export const getProductsCount = async (options: { category?: string } = {}): Promise<number> => {
-    let productsQuery: Query | db.CollectionReference = db.collection('products');
+    let productsQuery: Query | CollectionReference = db.collection('products');
     if (options.category) {
         productsQuery = productsQuery.where("categoryId", "==", options.category);
     }
